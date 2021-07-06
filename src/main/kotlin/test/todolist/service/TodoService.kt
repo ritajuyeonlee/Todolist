@@ -1,15 +1,10 @@
 package test.todolist.service
-
-
-import UpdateTodoDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import test.todolist.TodoRepository
 import test.todolist.dto.CreateTodoDTO
 import test.todolist.dto.ResponseTodoDTO
 import javax.transaction.Transactional
-
-
 @Service
 class TodoService() {
     @Autowired
@@ -25,13 +20,12 @@ class TodoService() {
         val todo=todoRepository.save(createTodoDTO.toEntity())
         return todo.createTodoDTO()
     }
-
-    @Transactional
-    fun updateTodo(id: Long,requestDTO: UpdateTodoDTO): CreateTodoDTO {
-        val todo=todoRepository.save(requestDTO.toEntity())
-        return todo.createTodoDTO()
-
-    }
+//    @Transactional
+//    fun updateTodo(id: Long,createTodoDTO: CreateTodoDTO): CreateTodoDTO {
+//        val todo=todoRepository.save(createTodoDTO.toEntity())
+//        return todo.createTodoDTO()
+//
+//    }
 //
 //    @Transactional
 //    fun deleteTodo(id: Long) {
