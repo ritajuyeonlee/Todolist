@@ -25,12 +25,12 @@ class TodoService() {
         return todo.createTodoDTO()
     }
 
-//    @Transactional
-//    fun updateTodo(id: Long,createTodoDTO: CreateTodoDTO): CreateTodoDTO {
-//        val todo=todoRepository.save(createTodoDTO.toEntity())
-//        return todo.createTodoDTO()
-//
-//    }
+    @Transactional
+    fun updateTodo(id: Long,createTodoDTO: CreateTodoDTO): CreateTodoDTO {
+        val todo=todoRepository.save(createTodoDTO.toEntity())
+        return todo.createTodoDTO()
+
+    }
 //
 //    @Transactional
 //    fun deleteTodo(id: Long) {
