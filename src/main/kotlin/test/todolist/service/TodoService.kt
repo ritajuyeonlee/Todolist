@@ -1,6 +1,7 @@
 package test.todolist.service
 
 
+import UpdateTodoDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import test.todolist.TodoRepository
@@ -26,8 +27,8 @@ class TodoService() {
     }
 
     @Transactional
-    fun updateTodo(id: Long,createTodoDTO: CreateTodoDTO): CreateTodoDTO {
-        val todo=todoRepository.save(createTodoDTO.toEntity())
+    fun updateTodo(id: Long,requestDTO: UpdateTodoDTO): CreateTodoDTO {
+        val todo=todoRepository.save(requestDTO.toEntity())
         return todo.createTodoDTO()
 
     }

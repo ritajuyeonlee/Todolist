@@ -26,7 +26,7 @@ class TodoController {
     }
     @PutMapping("/todo")
     fun updateTodo(@PathVariable id:Long, @RequestBody requestDto:UpdateTodoDTO):ResponseEntity<Any>{
-        service.updateTodo(id)
+        service.updateTodo(id, requestDto)
         return ResponseEntity.ok().body(true)
     }
 //
