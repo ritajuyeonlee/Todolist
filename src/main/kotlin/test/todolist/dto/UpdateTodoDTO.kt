@@ -1,13 +1,13 @@
-
-import test.todolist.Todo
+import test.todolist.domain.Todo
 
 data class UpdateTodoDTO (
-    val id: Long? = null,
-    val task: String? = null,
+    val id: Long,
+    val task: String,
     val isCheck : Boolean = true,
 ){
-    fun toEntity():Todo{
+    fun toEntity(): Todo {
         return Todo(
+            id=id,
             task=task,
             isCheck=isCheck
         )
