@@ -1,6 +1,5 @@
 package test.todolist.domain
-import UpdateTodoDTO
-import test.todolist.dto.CreateTodoDTO
+import test.todolist.dto.SaveTodoDTO
 import test.todolist.dto.ResponseTodoDTO
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -11,7 +10,7 @@ data class Todo(
     @Id @GeneratedValue(strategy =GenerationType.IDENTITY)
     var id:Long,
     var task: String,
-    val isCheck : Boolean = true
+    val isCheck : Boolean
 ) {
     fun getTodoDTO(): ResponseTodoDTO{
         return ResponseTodoDTO(
@@ -20,18 +19,12 @@ data class Todo(
             isCheck=isCheck
         )
     }
-    fun createTodoDTO(): CreateTodoDTO {
-        return CreateTodoDTO(
+    fun saveDTO(): SaveTodoDTO {
+        return SaveTodoDTO(
             id=id,
             task=task,
             isCheck = isCheck
         )
     }
-    fun updateTodoDTO():UpdateTodoDTO {
-        return UpdateTodoDTO(
-            id=id,
-            task=task,
-            isCheck=isCheck
-        )
-    }
+
 }

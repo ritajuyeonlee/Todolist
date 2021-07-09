@@ -4,7 +4,7 @@ import UpdateTodoDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import test.todolist.dto.CreateTodoDTO
+import test.todolist.dto.SaveTodoDTO
 import test.todolist.domain.TodoService
 
 @RestController
@@ -12,19 +12,20 @@ class TodoController {
     @Autowired
     lateinit var service: TodoService
 
-    @GetMapping("/todo/{isCheck}", produces = ["application/json"])
-    fun getFilterTodo(@PathVariable isCheck:Boolean)
-            :ResponseEntity<Any>{
-        return ResponseEntity.ok().body(service.getFilterTodoList(isCheck))
-    }
+//    @GetMapping("/todo/{isCheck}", produces = ["application/json"])
+//    fun getFilterTodolist(@PathVariable isCheck:Boolean)
+//            :ResponseEntity<Any>{
+//        return ResponseEntity.ok().body(service.getFilterTodoList(isCheck))
+//    }
 
     @GetMapping("/todo", produces = ["application/json"])
-    fun getTodo():ResponseEntity<Any>{
+    fun getTodolist():ResponseEntity<Any>{
         return ResponseEntity.ok().body(service.getTodoList())
     }
+
     @PostMapping("/todo")
-    fun createTodo(@RequestBody DTO: CreateTodoDTO):ResponseEntity<Any>{
-        service.createTodo(DTO)
+    fun saveTodo(@RequestBody DTO: SaveTodoDTO):ResponseEntity<Any>{
+        service.saveTodo(DTO)
         return ResponseEntity.ok().body(true)
     }
     @PutMapping("/todo")
