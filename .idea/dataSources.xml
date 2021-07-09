@@ -8,11 +8,11 @@
       <jdbc-url>jdbc:postgresql://192.168.12.238:5432/rsqtest</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="default@localhost" uuid="a5bbc3bd-7e3b-4514-9b4d-3ceecdf362da">
-      <driver-ref>h2.unified</driver-ref>
+    <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="25c20f9d-0bec-43f4-bdcb-ee020307460f">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:tcp://localhost:9092/default</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -42,9 +42,6 @@ ext {
 }
 dependencies {
 
-    implementation 'com.h2database:h2'
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     // spring
     implementation 'org.springframework.boot:spring-boot-starter-aop'
