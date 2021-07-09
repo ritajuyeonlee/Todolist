@@ -4,7 +4,7 @@ import UpdateTodoDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import test.todolist.dto.SaveTodoDTO
+import test.todolist.dto.CreaeteTodoDTO
 import test.todolist.domain.TodoService
 
 @RestController
@@ -23,10 +23,10 @@ class TodoController {
         return ResponseEntity.ok().body(service.getTodoList())
     }
 
+
     @PostMapping("/todo")
-    fun saveTodo(@RequestBody DTO: SaveTodoDTO):ResponseEntity<Any>{
-        service.saveTodo(DTO)
-        return ResponseEntity.ok().body(true)
+    fun createTodo(@RequestBody DTO: CreaeteTodoDTO): CreaeteTodoDTO{
+        return  service.createTodo(DTO)
     }
     @PutMapping("/todo")
     fun updateTodo(@RequestBody DTO : UpdateTodoDTO):ResponseEntity<Any>{

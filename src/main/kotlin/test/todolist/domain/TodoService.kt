@@ -2,7 +2,7 @@ package test.todolist.domain
 import UpdateTodoDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import test.todolist.dto.SaveTodoDTO
+import test.todolist.dto.CreaeteTodoDTO
 import test.todolist.dto.ResponseTodoDTO
 import java.util.*
 import javax.transaction.Transactional
@@ -22,9 +22,9 @@ class TodoService() {
     }
 
     @Transactional
-    fun saveTodo(DTO: SaveTodoDTO) : SaveTodoDTO{
+    fun createTodo(DTO: CreaeteTodoDTO) : CreaeteTodoDTO{
         val todo=todoRepository.save(DTO.toEntity())
-        return todo.saveDTO()
+        return todo.createDTO()
 
     }
     @Transactional
@@ -33,7 +33,9 @@ class TodoService() {
         if(todo=== Optional.empty<Todo>()) {
             throw IllegalArgumentException("해당아이디가 존재하지 않습니다")
         }else {
-            todoRepository.save(DTO.toEntity())
+            val too =todoRepository.save(DTO.toEntity())
+            println("dddd"+DTO.toEntity())
+            println("too"+too)
         }
     }
 
